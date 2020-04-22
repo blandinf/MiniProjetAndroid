@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.blandinf.miniprojetandroid.R
-import com.blandinf.miniprojetandroid.models.Source
+import com.blandinf.httpdatas.models.Source
 import com.bumptech.glide.Glide
 
 class SourceAdapter(private val dataset: List<Source>, private val callback: (mode: String) -> Unit) : RecyclerView.Adapter<SourceAdapter.ViewHolder>() {

@@ -9,8 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.blandinf.miniprojetandroid.R
 import com.blandinf.miniprojetandroid.adapters.CountryAdapter
-import com.blandinf.miniprojetandroid.change
-import com.blandinf.miniprojetandroid.models.Country
+import com.blandinf.httpdatas.models.Country
 
 class CountryFragment : Fragment() {
     lateinit var recyclerView: RecyclerView
@@ -27,9 +26,21 @@ class CountryFragment : Fragment() {
 
     private fun bindRecyclerView() {
         val countries = listOf(
-            Country("France", "fr", "https://www.betapolitique.fr/wp-content/uploads/2019/05/definition-politique.jpg"),
-            Country("Angleterre", "en", "https://www.betapolitique.fr/wp-content/uploads/2019/05/definition-politique.jpg"),
-            Country("Allemagne", "de", "https://www.betapolitique.fr/wp-content/uploads/2019/05/definition-politique.jpg")
+            Country(
+                "France",
+                "fr",
+                "https://www.betapolitique.fr/wp-content/uploads/2019/05/definition-politique.jpg"
+            ),
+            Country(
+                "Angleterre",
+                "en",
+                "https://www.betapolitique.fr/wp-content/uploads/2019/05/definition-politique.jpg"
+            ),
+            Country(
+                "Allemagne",
+                "de",
+                "https://www.betapolitique.fr/wp-content/uploads/2019/05/definition-politique.jpg"
+            )
         )
         val adapterRecycler = CountryAdapter(countries) {
             // it = country language (ex: en)
