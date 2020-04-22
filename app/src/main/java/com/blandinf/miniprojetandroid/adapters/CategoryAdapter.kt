@@ -22,8 +22,9 @@ class CategoryAdapter(private val dataset: List<Category>, private val callback:
 
             Glide.with(root.context)
                 .load(item.url)
-                .placeholder(R.drawable.ic_launcher_background)
+                .centerCrop()
                 .into(image)
+
             title.text = item.title
             description.text = item.description
 
