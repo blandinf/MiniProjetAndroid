@@ -14,14 +14,9 @@ class SourceAdapter(private val dataset: List<Source>, private val callback: (mo
 
     inner class ViewHolder(val root: View) : RecyclerView.ViewHolder(root) {
         fun bind(item: Source) {
-            val image = root.findViewById<ImageView>(R.id.source_image)
             val source = root.findViewById<TextView>(R.id.source_name)
             val description = root.findViewById<TextView>(R.id.source_description)
 
-            Glide.with(root.context)
-                .load(item.url)
-                .placeholder(R.drawable.ic_launcher_background)
-                .into(image)
             source.text = item.name
             description.text = item.description
 

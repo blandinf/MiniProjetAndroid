@@ -29,17 +29,17 @@ class CountryFragment : Fragment() {
             Country(
                 "France",
                 "fr",
-                "https://www.betapolitique.fr/wp-content/uploads/2019/05/definition-politique.jpg"
+                "https://images.emojiterra.com/twitter/v12/512px/1f1eb-1f1f7.png"
             ),
             Country(
                 "Angleterre",
                 "en",
-                "https://www.betapolitique.fr/wp-content/uploads/2019/05/definition-politique.jpg"
+                "https://images.emojiterra.com/twitter/v12/512px/1f1ec-1f1e7.png"
             ),
             Country(
                 "Allemagne",
                 "de",
-                "https://www.betapolitique.fr/wp-content/uploads/2019/05/definition-politique.jpg"
+                "https://images.emojiterra.com/twitter/v12/512px/1f1e9-1f1ea.png"
             )
         )
         val adapterRecycler = CountryAdapter(countries) {
