@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.blandinf.miniprojetandroid.R
-import com.blandinf.miniprojetandroid.models.Category
+import com.blandinf.httpdatas.models.Category
 import com.bumptech.glide.Glide
 import com.bumptech.glide.annotation.GlideModule
 

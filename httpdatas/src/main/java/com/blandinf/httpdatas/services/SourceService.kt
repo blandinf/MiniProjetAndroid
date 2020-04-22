@@ -1,6 +1,6 @@
-package com.blandinf.miniprojetandroid.services
+package com.blandinf.httpdatas.services
 
-import com.blandinf.miniprojetandroid.models.SourceResult
+import com.blandinf.httpdatas.models.SourceResult
 import retrofit2.Call
 import retrofit2.http.GET
 
