@@ -1,2 +1,3 @@
 rootProject.name='MiniProjetAndroid'
 include ':app'
+include ':httpdatas'
