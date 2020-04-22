@@ -6,18 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.blandinf.httpdatas.models.Mode
 import com.blandinf.miniprojetandroid.R
+import com.blandinf.miniprojetandroid.models.Mode
 
-class ModeAdapter(private val dataset: List<Mode>, val itemClickListener: OnItemClickListener) :
-    RecyclerView.Adapter<ModeAdapter.ViewHolder>() {
-    class ViewHolder(val root: View) : RecyclerView.ViewHolder(root) {
-        fun bind(item: Mode, clickListener: OnItemClickListener) {
-            val txtTitle = root.findViewById<TextView>(R.id.mode_name)
-            txtTitle.text = item.name
+class ModeAdapter(private val dataset: List<Mode>, private val callback: (mode: String) -> Unit) : RecyclerView.Adapter<ModeAdapter.ViewHolder>() {
+
+    inner class ViewHolder(val root: View) : RecyclerView.ViewHolder(root) {
+        fun bind(item: Mode) {
+            val title = root.findViewById<TextView>(R.id.mode_title)
+            title.text = item.title
 
             root.setOnClickListener {
-                clickListener.onItemClicked(item)
+                callback(item.name)
             }
         }
     }
@@ -29,7 +29,7 @@ class ModeAdapter(private val dataset: List<Mode>, val itemClickListener: OnItem
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(dataset[position], itemClickListener)
+        holder.bind(dataset[position])
     }
 
 
@@ -37,5 +37,5 @@ class ModeAdapter(private val dataset: List<Mode>, val itemClickListener: OnItem
 }
 
 interface OnItemClickListener{
-    fun onItemClicked(mode: Mode)
+    fun onItemClicked(modeName: String)
 }
