@@ -36,8 +36,6 @@ class ModeFragment: Fragment() {
         )
         //créer une instance de l'adapteur
         val adapterRecycler = ModeAdapter(modes) {
-            Toast.makeText(context,"Mode name $it", Toast.LENGTH_LONG)
-                .show()
             when (it) {
                 "sources" -> activity?.change(SourceFragment())
                 "categories" -> activity?.change(CategoryFragment())
