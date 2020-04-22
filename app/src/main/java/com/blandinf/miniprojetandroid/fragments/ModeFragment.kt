@@ -10,17 +10,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.blandinf.miniprojetandroid.R
 import com.blandinf.miniprojetandroid.adapters.ModeAdapter
-import com.blandinf.miniprojetandroid.adapters.OnItemClickListener
+import com.blandinf.miniprojetandroid.change
 import com.blandinf.miniprojetandroid.models.Mode
 
-class ModeFragment: Fragment(), OnItemClickListener {
+class ModeFragment: Fragment() {
     private lateinit var recyclerView: RecyclerView
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.mode_list, container, false)
     }
 
@@ -31,21 +27,23 @@ class ModeFragment: Fragment(), OnItemClickListener {
         bindRecyclerView()
     }
 
-    override fun onItemClicked(mode: Mode) {
-        Toast.makeText(context,"User name ${mode.name}", Toast.LENGTH_LONG)
-             .show()
-        //activity?.change(ListArticleFragment.newInstance(mode.name))
-    }
-
     private fun bindRecyclerView() {
         //créer une liste d'articles
         val modes = listOf(
-            Mode(name="Sources"),
-            Mode(name="Catégories"),
-            Mode(name="Pays")
+            Mode("Sources", "sources"),
+            Mode("Catégories", "categories"),
+            Mode("Pays", "countries")
         )
         //créer une instance de l'adapteur
-        val adapterRecycler = ModeAdapter(modes, this)
+        val adapterRecycler = ModeAdapter(modes) {
+            Toast.makeText(context,"Mode name $it", Toast.LENGTH_LONG)
+                .show()
+            when (it) {
+                "sources" -> activity?.change(SourceFragment())
+                "categories" -> activity?.change(CategoryFragment())
+                else -> activity?.change(CountryFragment())
+            }
+        }
         //définir l'orientation des élements (vertical)
         recyclerView.layoutManager = LinearLayoutManager(context)
         //associer l'adapter à la recyclerview

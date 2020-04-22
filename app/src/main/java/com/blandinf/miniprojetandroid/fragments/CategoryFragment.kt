@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.blandinf.miniprojetandroid.R
 import com.blandinf.miniprojetandroid.adapters.CategoryAdapter
+import com.blandinf.miniprojetandroid.change
 import com.blandinf.miniprojetandroid.models.Category
 
 class CategoryFragment : Fragment() {
@@ -34,7 +35,8 @@ class CategoryFragment : Fragment() {
             Category("Ecologie", "Description6", "ecology", "https://cdn.futura-sciences.com/buildsv6/images/wide1920/f/b/f/fbf1ffdbee_50145424_ecologie-science.jpg")
         )
         val adapterRecycler = CategoryAdapter(categories) {
-//            activity?.switchToFragment(ArticlesFragment.newInstance(it))
+            // it = category name (ex: politics)
+            // activity?.change(SourceFragment())
         }
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = adapterRecycler

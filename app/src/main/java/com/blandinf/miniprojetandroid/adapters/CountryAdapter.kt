@@ -7,16 +7,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.blandinf.miniprojetandroid.R
-import com.blandinf.miniprojetandroid.models.Category
 import com.blandinf.miniprojetandroid.models.Country
 import com.bumptech.glide.Glide
 import com.bumptech.glide.annotation.GlideModule
 
 @GlideModule
-class CountryAdapter(
-    private val dataset: List<Country>,
-    private val callback: (category: String) -> Unit
-) : RecyclerView.Adapter<CountryAdapter.ViewHolder>() {
+class CountryAdapter(private val dataset: List<Country>, private val callback: (country: String) -> Unit) : RecyclerView.Adapter<CountryAdapter.ViewHolder>() {
 
     inner class ViewHolder(val root: View) : RecyclerView.ViewHolder(root) {
         fun bind(item: Country) {
@@ -30,7 +26,7 @@ class CountryAdapter(
             name.text = item.name
 
             root.setOnClickListener {
-//                callback(item.query)
+                callback(item.language)
             }
         }
     }

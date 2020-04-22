@@ -15,7 +15,7 @@
         >
 
         <TextView
-            android:id="@+id/mode_name"
+            android:id="@+id/mode_title"
             tools:text="Nom du mode"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"

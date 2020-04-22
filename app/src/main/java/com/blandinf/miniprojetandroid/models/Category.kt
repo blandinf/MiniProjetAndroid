@@ -1,8 +1,8 @@
 package com.blandinf.miniprojetandroid.models
 
 data class Category(
-    val name: String,
+    val title: String,
     val description: String,
-    val query: String,
+    val name: String,
     val url: String
 )

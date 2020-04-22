@@ -12,25 +12,23 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.annotation.GlideModule
 
 @GlideModule
-class CategoryAdapter(
-    private val dataset: List<Category>,
-    private val callback: (category: String) -> Unit
-) : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
+class CategoryAdapter(private val dataset: List<Category>, private val callback: (category: String) -> Unit) : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
 
     inner class ViewHolder(val root: View) : RecyclerView.ViewHolder(root) {
         fun bind(item: Category) {
             val image = root.findViewById<ImageView>(R.id.category_image)
-            val name = root.findViewById<TextView>(R.id.category_name)
+            val title = root.findViewById<TextView>(R.id.category_title)
             val description = root.findViewById<TextView>(R.id.category_description)
+
             Glide.with(root.context)
                 .load(item.url)
                 .placeholder(R.drawable.ic_launcher_background)
                 .into(image)
-            name.text = item.name
+            title.text = item.title
             description.text = item.description
 
             root.setOnClickListener {
-                callback(item.query)
+                callback(item.name)
             }
         }
     }

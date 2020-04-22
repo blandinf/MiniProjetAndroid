@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.blandinf.miniprojetandroid.R
 import com.blandinf.miniprojetandroid.adapters.CountryAdapter
+import com.blandinf.miniprojetandroid.change
 import com.blandinf.miniprojetandroid.models.Country
 
 class CountryFragment : Fragment() {
@@ -31,7 +32,8 @@ class CountryFragment : Fragment() {
             Country("Allemagne", "de", "https://www.betapolitique.fr/wp-content/uploads/2019/05/definition-politique.jpg")
         )
         val adapterRecycler = CountryAdapter(countries) {
-//            activity?.switchToFragment(ArticlesFragment.newInstance(it))
+            // it = country language (ex: en)
+            // activity?.change(SourceFragment())
         }
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = adapterRecycler

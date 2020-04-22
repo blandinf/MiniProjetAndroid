@@ -9,7 +9,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.blandinf.miniprojetandroid.R
+import com.blandinf.miniprojetandroid.adapters.OnItemClickListener
 import com.blandinf.miniprojetandroid.adapters.SourceAdapter
+import com.blandinf.miniprojetandroid.change
 import com.blandinf.miniprojetandroid.models.Source
 import com.blandinf.miniprojetandroid.repositories.SourceRepository
 import kotlinx.coroutines.Dispatchers
@@ -37,7 +39,10 @@ class SourceFragment: Fragment() {
     //S'execute sur le thread principal
     private suspend fun bindData(result: List<Source>) {
         withContext(Dispatchers.Main) {
-            val adapterRecycler = SourceAdapter(result)
+            val adapterRecycler = SourceAdapter(result) {
+                // it = source name (ex: bbc-news)
+                // activity?.change(SourceFragment())
+            }
             recyclerView.layoutManager = LinearLayoutManager(context)
             recyclerView.adapter = adapterRecycler
         }
