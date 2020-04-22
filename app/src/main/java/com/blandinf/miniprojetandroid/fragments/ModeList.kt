@@ -8,11 +8,10 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.blandinf.httpdatas.models.Mode
 import com.blandinf.miniprojetandroid.R
 import com.blandinf.miniprojetandroid.adapters.ModeAdapter
 import com.blandinf.miniprojetandroid.adapters.OnItemClickListener
-import com.blandinf.miniprojetandroid.models.Mode
-
 
 class ModeList: Fragment(), OnItemClickListener {
     private lateinit var recyclerView: RecyclerView
