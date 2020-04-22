@@ -45,7 +45,10 @@ class ModeFragment: Fragment() {
             }
         }
         //définir l'orientation des élements (vertical)
-        recyclerView.layoutManager = LinearLayoutManager(context)
+        val layoutManager = LinearLayoutManager(context)
+        layoutManager.orientation = LinearLayoutManager.HORIZONTAL
+        recyclerView.layoutManager = layoutManager
+
         //associer l'adapter à la recyclerview
         recyclerView.adapter = adapterRecycler
     }
