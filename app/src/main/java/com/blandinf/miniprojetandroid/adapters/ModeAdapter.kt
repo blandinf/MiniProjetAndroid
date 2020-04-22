@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.blandinf.httpdatas.models.Mode
 import com.blandinf.miniprojetandroid.R
+import com.blandinf.miniprojetandroid.models.Mode
 
 class ModeAdapter(private val dataset: List<Mode>, val itemClickListener: OnItemClickListener) :
     RecyclerView.Adapter<ModeAdapter.ViewHolder>() {

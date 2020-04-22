@@ -1,7 +1,6 @@
 package com.blandinf.miniprojetandroid.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,13 +16,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class SourcesFragment: Fragment() {
+class SourceFragment: Fragment() {
     lateinit var recyclerView: RecyclerView
     private val repository = SourceRepository()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recyclerView = view.findViewById(R.id.recyclerView)
+        recyclerView = view.findViewById(R.id.recyclerViewSource)
         lifecycleScope.launch {
             getData()
         }
@@ -45,6 +44,6 @@ class SourcesFragment: Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.source_fragment, container, false)
+        return inflater.inflate(R.layout.source_list, container, false)
     }
 }

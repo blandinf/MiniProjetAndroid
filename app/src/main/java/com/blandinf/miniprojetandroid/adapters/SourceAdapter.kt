@@ -25,7 +25,7 @@ class SourceAdapter(private val dataset: List<Source>) : RecyclerView.Adapter<So
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.list_item_source, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.source_list_item, parent, false))
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(dataset[position])
 
