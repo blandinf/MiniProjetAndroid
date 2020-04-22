@@ -9,18 +9,17 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.blandinf.miniprojetandroid.R
-import com.blandinf.miniprojetandroid.adapters.OnItemClickListener
 import com.blandinf.miniprojetandroid.adapters.SourceAdapter
-import com.blandinf.miniprojetandroid.change
-import com.blandinf.miniprojetandroid.models.Source
-import com.blandinf.miniprojetandroid.repositories.SourceRepository
+import com.blandinf.httpdatas.models.Source
+import com.blandinf.httpdatas.repositories.SourceRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class SourceFragment: Fragment() {
     lateinit var recyclerView: RecyclerView
-    private val repository = SourceRepository()
+    private val repository =
+        SourceRepository()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

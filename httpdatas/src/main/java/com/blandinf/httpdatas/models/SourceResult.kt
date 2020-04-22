@@ -1,4 +1,4 @@
-package com.blandinf.miniprojetandroid.models
+package com.blandinf.httpdatas.models
 
 data class SourceResult(
     val status: String,

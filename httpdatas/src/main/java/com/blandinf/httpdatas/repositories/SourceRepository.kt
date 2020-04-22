@@ -1,10 +1,9 @@
-package com.blandinf.miniprojetandroid.repositories
+package com.blandinf.httpdatas.repositories
 
 import android.os.Build
-import com.blandinf.miniprojetandroid.BuildConfig
-import com.blandinf.miniprojetandroid.models.Source
-import com.blandinf.miniprojetandroid.models.SourceResult
-import com.blandinf.miniprojetandroid.services.SourceService
+import com.blandinf.httpdatas.BuildConfig
+import com.blandinf.httpdatas.models.Source
+import com.blandinf.httpdatas.services.SourceService
 import com.google.gson.Gson
 import okhttp3.HttpUrl
 import okhttp3.Interceptor

@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.blandinf.miniprojetandroid.R
 import com.blandinf.miniprojetandroid.adapters.ModeAdapter
 import com.blandinf.miniprojetandroid.change
-import com.blandinf.miniprojetandroid.models.Mode
+import com.blandinf.httpdatas.models.Mode
 
 class ModeFragment: Fragment() {
     private lateinit var recyclerView: RecyclerView
