@@ -43,13 +43,7 @@ class SourceFragment: Fragment() {
             val adapterRecycler = SourceAdapter(result) {
                 // it = source name (ex: bbc-news)
                 // activity?.change(SourceFragment())
-
-                println("KKKKKKKKKKKKK")
-                println(it)
                 sourceChoice = it
-                println("okokokokokokokokok")
-                println(sourceChoice)
-                println("abbabababababababababaabababababab")
                 activity?.change(ArticleFragment.newSourceInstance(it,"sources"))
 
             }
