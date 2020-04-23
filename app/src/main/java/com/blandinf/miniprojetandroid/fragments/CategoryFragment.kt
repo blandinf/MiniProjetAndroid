@@ -11,19 +11,17 @@ import com.blandinf.miniprojetandroid.R
 import com.blandinf.miniprojetandroid.adapters.CategoryAdapter
 import com.blandinf.httpdatas.models.Category
 import com.blandinf.miniprojetandroid.change
+import com.blandinf.miniprojetandroid.fragments.ArticleFragment.Companion.categoryChoice
 
 class CategoryFragment : Fragment() {
     lateinit var recyclerView: RecyclerView
+    lateinit var categoryChoice:String
 
     companion object{
-
-        lateinit var categoryChoice:String
-
         fun newInstance(category:String):ArticleFragment{
             categoryChoice = category
             return ArticleFragment()
         }
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -47,9 +45,10 @@ class CategoryFragment : Fragment() {
         )
         val adapterRecycler = CategoryAdapter(categories) {
             // it = category name (ex: politics)
-            //categoryChoice = it
+            categoryChoice = it
+            println(categoryChoice)
             //activity?.change(SourceFragment())
-            //activity?.change(newInstance(categoryChoice))
+            activity?.change(newInstance(categoryChoice))
 
 
         }
