@@ -27,9 +27,24 @@ class ArticleFragment: Fragment() {
     companion object{
 
         lateinit var categoryChoice:String
+        lateinit var countryChoice:String
+        lateinit var sourceChoice:String
+        lateinit var getModeChoice:String
 
-        fun newInstance(category:String):ArticleFragment{
+        fun newInstance(category:String,getMode:String):ArticleFragment{
             categoryChoice = category
+            getModeChoice = getMode
+            return ArticleFragment()
+        }
+
+        fun newCountryInstance(country:String,getMode:String):ArticleFragment{
+            countryChoice = country
+            getModeChoice = getMode
+            return ArticleFragment()
+        }
+        fun newSourceInstance(source:String,getMode:String):ArticleFragment{
+            sourceChoice = source
+            getModeChoice = getMode
             return ArticleFragment()
         }
 
@@ -45,9 +60,23 @@ class ArticleFragment: Fragment() {
 
     private suspend fun getData() {
         withContext(Dispatchers.IO) {
-            val result = repository.getArticlesByCategory(categoryChoice)
-            println(result.toString())
-            bindData(result)
+
+            println(getModeChoice)
+
+            lateinit var resultData:List<Article>
+            when(getModeChoice){
+                "country"-> resultData = repository.getArticlesByCountry(countryChoice,"country")
+                "category"-> resultData = repository.getArticlesByCategory(categoryChoice,"category")
+                "sources"-> resultData = repository.getArticlesBySources(categoryChoice,"sources")
+            }
+
+            println(resultData.toString())
+
+            //val result = repository.getArticlesByCountry(countryChoice,"country")
+
+
+            /**println(result.toString())**/
+            bindData(resultData)
         }
     }
     //S'execute sur le thread principal

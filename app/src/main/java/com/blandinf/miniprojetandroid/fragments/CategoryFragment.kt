@@ -41,9 +41,9 @@ class CategoryFragment : Fragment() {
         val adapterRecycler = CategoryAdapter(categories) {
             // it = category name (ex: politics)
             categoryChoice = it
-            println(categoryChoice)
+
             //activity?.change(SourceFragment())
-            activity?.change(ArticleFragment.newInstance(it))
+            activity?.change(ArticleFragment.newInstance(it,"category"))
 
 
         }

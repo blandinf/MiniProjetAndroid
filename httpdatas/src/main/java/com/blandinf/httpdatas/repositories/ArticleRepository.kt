@@ -21,8 +21,17 @@ import java.util.concurrent.TimeUnit
 class ArticleRepository {
     private val service: ArticleService
 
-    fun getArticlesByCategory(category:String): List<Article> {
+    fun getArticlesByCategory(category:String,getMode:String): List<Article> {
         val response = service.getArticlesByCategory(category).execute()
+        return response.body()?.articles ?: emptyList()
+    }
+    fun getArticlesByCountry(country:String,getMode:String): List<Article> {
+        val response = service.getArticlesByCountry(country).execute()
+        return response.body()?.articles ?: emptyList()
+    }
+
+    fun getArticlesBySources(source:String,getMode:String): List<Article> {
+        val response = service.getArticlesBySource(source).execute()
         return response.body()?.articles ?: emptyList()
     }
 

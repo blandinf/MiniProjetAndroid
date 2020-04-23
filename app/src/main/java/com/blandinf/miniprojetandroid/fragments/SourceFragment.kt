@@ -12,6 +12,7 @@ import com.blandinf.miniprojetandroid.R
 import com.blandinf.miniprojetandroid.adapters.SourceAdapter
 import com.blandinf.httpdatas.models.Source
 import com.blandinf.httpdatas.repositories.SourceRepository
+import com.blandinf.miniprojetandroid.change
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -20,6 +21,7 @@ class SourceFragment: Fragment() {
     lateinit var recyclerView: RecyclerView
     private val repository =
         SourceRepository()
+    lateinit var sourceChoice:String
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -41,6 +43,12 @@ class SourceFragment: Fragment() {
             val adapterRecycler = SourceAdapter(result) {
                 // it = source name (ex: bbc-news)
                 // activity?.change(SourceFragment())
+
+                println("KKKKKKKKKKKKK")
+                println(it)
+                sourceChoice = it
+                activity?.change(ArticleFragment.newSourceInstance(it,"sources"))
+
             }
             recyclerView.layoutManager = LinearLayoutManager(context)
             recyclerView.adapter = adapterRecycler

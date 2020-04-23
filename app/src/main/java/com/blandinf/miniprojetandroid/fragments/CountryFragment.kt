@@ -10,9 +10,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.blandinf.miniprojetandroid.R
 import com.blandinf.miniprojetandroid.adapters.CountryAdapter
 import com.blandinf.httpdatas.models.Country
+import com.blandinf.miniprojetandroid.change
 
 class CountryFragment : Fragment() {
     lateinit var recyclerView: RecyclerView
+    lateinit var countryChoice:String
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -43,8 +46,10 @@ class CountryFragment : Fragment() {
             )
         )
         val adapterRecycler = CountryAdapter(countries) {
-            // it = country language (ex: en)
-            // activity?.change(SourceFragment())
+
+            countryChoice = it
+            activity?.change(ArticleFragment.newCountryInstance(it,"country"))
+
         }
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = adapterRecycler
