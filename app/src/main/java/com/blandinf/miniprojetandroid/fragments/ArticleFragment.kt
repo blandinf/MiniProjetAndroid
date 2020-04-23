@@ -1,6 +1,7 @@
 package com.blandinf.miniprojetandroid.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -44,7 +45,8 @@ class ArticleFragment: Fragment() {
 
     private suspend fun getData() {
         withContext(Dispatchers.IO) {
-            val result = repository.getArticles(categoryChoice)
+            val result = repository.getArticlesByCategory(categoryChoice)
+            println(result.toString())
             bindData(result)
         }
     }
@@ -62,6 +64,8 @@ class ArticleFragment: Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        println("TEST TEST")
+        Log.d("TESTETTTTTT", "MESSAGE PRINT")
         return inflater.inflate(R.layout.article_list, container, false)
     }
 }

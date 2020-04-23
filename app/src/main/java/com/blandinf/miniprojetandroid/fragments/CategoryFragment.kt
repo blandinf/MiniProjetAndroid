@@ -17,12 +17,7 @@ class CategoryFragment : Fragment() {
     lateinit var recyclerView: RecyclerView
     lateinit var categoryChoice:String
 
-    companion object{
-        fun newInstance(category:String):ArticleFragment{
-            categoryChoice = category
-            return ArticleFragment()
-        }
-    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -48,7 +43,7 @@ class CategoryFragment : Fragment() {
             categoryChoice = it
             println(categoryChoice)
             //activity?.change(SourceFragment())
-            activity?.change(newInstance(categoryChoice))
+            activity?.change(ArticleFragment.newInstance(it))
 
 
         }
