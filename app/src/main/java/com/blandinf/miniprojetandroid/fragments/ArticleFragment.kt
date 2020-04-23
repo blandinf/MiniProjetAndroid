@@ -67,7 +67,7 @@ class ArticleFragment: Fragment() {
             when(getModeChoice){
                 "country"-> resultData = repository.getArticlesByCountry(countryChoice,"country")
                 "category"-> resultData = repository.getArticlesByCategory(categoryChoice,"category")
-                "sources"-> resultData = repository.getArticlesBySources(categoryChoice,"sources")
+                "sources"-> resultData = repository.getArticlesBySources(sourceChoice,"sources")
             }
 
             println(resultData.toString())

@@ -47,6 +47,9 @@ class SourceFragment: Fragment() {
                 println("KKKKKKKKKKKKK")
                 println(it)
                 sourceChoice = it
+                println("okokokokokokokokok")
+                println(sourceChoice)
+                println("abbabababababababababaabababababab")
                 activity?.change(ArticleFragment.newSourceInstance(it,"sources"))
 
             }

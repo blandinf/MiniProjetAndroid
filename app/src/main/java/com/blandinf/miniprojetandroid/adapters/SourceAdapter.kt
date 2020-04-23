@@ -21,7 +21,7 @@ class SourceAdapter(private val dataset: List<Source>, private val callback: (mo
             description.text = item.description
 
             root.setOnClickListener {
-                callback(item.name)
+                callback(item.id)
             }
         }
     }

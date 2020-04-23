@@ -36,7 +36,7 @@ class CountryFragment : Fragment() {
             ),
             Country(
                 "Angleterre",
-                "en",
+                "gb",
                 "https://images.emojiterra.com/twitter/v12/512px/1f1ec-1f1e7.png"
             ),
             Country(
