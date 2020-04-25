@@ -17,6 +17,7 @@ import java.util.concurrent.TimeUnit
 
 class SourceRepository {
     private val service: SourceService
+    val apiKey: String = BuildConfig.ApiKey;
 
     fun getSources(): List<Source> {
         val response = service.getSources().execute()
@@ -28,7 +29,7 @@ class SourceRepository {
 
         val url: HttpUrl = original.url
             .newBuilder()
-            .addQueryParameter("apiKey", "ee529b71a56540c487f617abf0a3c8c0")
+            .addQueryParameter("apiKey", apiKey)
             .build()
 
         val device = Build.MANUFACTURER + "-" + Build.MODEL

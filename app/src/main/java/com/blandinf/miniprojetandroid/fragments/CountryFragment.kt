@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.blandinf.miniprojetandroid.R
 import com.blandinf.miniprojetandroid.adapters.CountryAdapter
 import com.blandinf.httpdatas.models.Country
+import com.blandinf.miniprojetandroid.change
 
 class CountryFragment : Fragment() {
     lateinit var recyclerView: RecyclerView
@@ -33,7 +34,7 @@ class CountryFragment : Fragment() {
             ),
             Country(
                 "Angleterre",
-                "en",
+                "gb",
                 "https://images.emojiterra.com/twitter/v12/512px/1f1ec-1f1e7.png"
             ),
             Country(
@@ -43,8 +44,7 @@ class CountryFragment : Fragment() {
             )
         )
         val adapterRecycler = CountryAdapter(countries) {
-            // it = country language (ex: en)
-            // activity?.change(SourceFragment())
+            activity?.change(ArticleFragment.newCountryInstance(it,"country"))
         }
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = adapterRecycler

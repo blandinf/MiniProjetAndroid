@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.blandinf.miniprojetandroid.R
 import com.blandinf.miniprojetandroid.adapters.CategoryAdapter
 import com.blandinf.httpdatas.models.Category
+import com.blandinf.miniprojetandroid.change
+import com.blandinf.miniprojetandroid.fragments.ArticleFragment.Companion.categoryChoice
 
 class CategoryFragment : Fragment() {
     lateinit var recyclerView: RecyclerView
@@ -34,8 +36,7 @@ class CategoryFragment : Fragment() {
             Category(title="Ecologie", name="ecology", description="Notre terre respire, les populations mondiales respirent un air plus pur, disons merci au point positif du corona !", url="https://static.actu.fr/uploads/2019/05/AdobeStock_112721620-854x567.jpeg")
         )
         val adapterRecycler = CategoryAdapter(categories) {
-            // it = category name (ex: politics)
-            // activity?.change(SourceFragment())
+            activity?.change(ArticleFragment.newInstance(it,"category"))
         }
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = adapterRecycler
