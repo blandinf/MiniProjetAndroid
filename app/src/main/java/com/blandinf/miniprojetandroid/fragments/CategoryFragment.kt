@@ -11,7 +11,6 @@ import com.blandinf.miniprojetandroid.R
 import com.blandinf.miniprojetandroid.adapters.CategoryAdapter
 import com.blandinf.httpdatas.models.Category
 import com.blandinf.miniprojetandroid.change
-import com.blandinf.miniprojetandroid.fragments.ArticleFragment.Companion.categoryChoice
 
 class CategoryFragment : Fragment() {
     lateinit var recyclerView: RecyclerView

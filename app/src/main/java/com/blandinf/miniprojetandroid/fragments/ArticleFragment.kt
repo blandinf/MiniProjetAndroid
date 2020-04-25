@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,28 +22,16 @@ import kotlinx.coroutines.withContext
 class ArticleFragment: Fragment() {
     lateinit var recyclerView: RecyclerView
     private val repository = ArticleRepository()
-    lateinit var resultData:List<Article>
 
     companion object{
-        lateinit var categoryChoice:String
-        lateinit var countryChoice:String
-        lateinit var sourceChoice:String
-        lateinit var getModeChoice:String
+        // mode selected by user between ["sources", "categories", "countries"]
+        lateinit var selectedMode:String
+        // user can filter articles according to the mode selected
+        lateinit var selectedFilter:String
 
-        fun newInstance(category:String,getMode:String):ArticleFragment{
-            categoryChoice = category
-            getModeChoice = getMode
-            return ArticleFragment()
-        }
-
-        fun newCountryInstance(country:String,getMode:String):ArticleFragment{
-            countryChoice = country
-            getModeChoice = getMode
-            return ArticleFragment()
-        }
-        fun newSourceInstance(source:String,getMode:String):ArticleFragment{
-            sourceChoice = source
-            getModeChoice = getMode
+        fun newInstance(filter: String, getMode: String): ArticleFragment {
+            selectedFilter = filter
+            selectedMode = getMode
             return ArticleFragment()
         }
     }
@@ -60,14 +47,7 @@ class ArticleFragment: Fragment() {
 
     private suspend fun getData() {
         withContext(Dispatchers.IO) {
-
-            when(getModeChoice){
-                "country"-> resultData = repository.getArticlesByCountry(countryChoice)
-                "category"-> resultData = repository.getArticlesByCategory(categoryChoice)
-                "sources"-> resultData = repository.getArticlesBySources(sourceChoice)
-            }
-
-            bindData(resultData)
+            bindData(repository.getArticles(selectedFilter, selectedMode))
         }
     }
 
