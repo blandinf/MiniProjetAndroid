@@ -1,5 +1,7 @@
 package com.blandinf.miniprojetandroid.fragments
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -70,6 +72,9 @@ class ArticleFragment: Fragment() {
     private suspend fun bindData(result: List<Article>) {
         withContext(Dispatchers.Main) {
             val adapterRecycler = ArticleAdapter(result) {
+                val openURL = Intent(Intent.ACTION_VIEW)
+                openURL.data = Uri.parse(it)
+                startActivity(openURL)
             }
             recyclerView.layoutManager = LinearLayoutManager(context)
             recyclerView.adapter = adapterRecycler

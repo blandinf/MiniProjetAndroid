@@ -30,7 +30,7 @@ class ArticleAdapter(private val dataset: List<Article>, private val callback: (
                 .into(image)
 
             root.setOnClickListener {
-                callback(item.title)
+                callback(item.url)
             }
         }
     }
