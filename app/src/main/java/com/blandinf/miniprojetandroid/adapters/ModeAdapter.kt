@@ -1,9 +1,13 @@
 package com.blandinf.miniprojetandroid.adapters
 
+import android.app.PendingIntent.getActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.blandinf.miniprojetandroid.R
 import com.blandinf.httpdatas.models.Mode
@@ -13,7 +17,10 @@ class ModeAdapter(private val dataset: List<Mode>, private val callback: (mode: 
     inner class ViewHolder(val root: View) : RecyclerView.ViewHolder(root) {
         fun bind(item: Mode) {
             val title = root.findViewById<TextView>(R.id.mode_title)
+            val background = root.findViewById<ImageView>(R.id.mode_bg)
             title.text = item.title
+            background.setImageResource(item.background)
+
 
             root.setOnClickListener {
                 callback(item.name)

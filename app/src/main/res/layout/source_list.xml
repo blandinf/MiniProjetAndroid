@@ -6,15 +6,87 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewSource"
+    <ImageView
+        android:id="@+id/recyclerBanner"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/sources_bg"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/bannerContentDesc"
+        />
+
+    <View
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/colorBlack"
+        app:layout_constraintTop_toTopOf="@id/recyclerBanner"
+        app:layout_constraintBottom_toBottomOf="@id/recyclerBanner"
+        app:layout_constraintLeft_toLeftOf="@id/recyclerBanner"
+        app:layout_constraintRight_toRightOf="@id/recyclerBanner"
+        android:alpha="0.4"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorWhite"
+        android:textSize="26sp"
+        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/source_list_item"
-    />
+        android:layout_marginStart="30dp"
+        app:layout_constraintTop_toTopOf="@id/recyclerBanner"
+        app:layout_constraintBottom_toBottomOf="@id/recyclerBanner"
+        android:text="@string/banner_title_sources"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/recyclerBanner"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/colorLightGrey"
+        >
+
+        <TextView
+            android:id="@+id/choice_label"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="30dp"
+            android:textSize="16sp"
+            android:layout_marginLeft="30dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:textColor="@color/colorBlack"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/choice_source"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/loading"
+            android:textSize="20sp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginStart="30dp"
+            app:layout_constraintTop_toBottomOf="@id/choice_label"
+        />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
+            android:layout_marginTop="30dp"
+            android:id="@+id/recyclerViewSource"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/choice_label"
+            tools:listitem="@layout/source_list_item"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
