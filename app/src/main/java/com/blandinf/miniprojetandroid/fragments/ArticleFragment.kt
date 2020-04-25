@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,6 +18,7 @@ import com.blandinf.miniprojetandroid.adapters.ArticleAdapter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+
 
 class ArticleFragment: Fragment() {
     lateinit var recyclerView: RecyclerView
@@ -50,6 +52,7 @@ class ArticleFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recyclerView = view.findViewById(R.id.recyclerViewArticle)
+
         lifecycleScope.launch {
             getData()
         }
@@ -71,11 +74,17 @@ class ArticleFragment: Fragment() {
     //S'execute sur le thread principal
     private suspend fun bindData(result: List<Article>) {
         withContext(Dispatchers.Main) {
-            val adapterRecycler = ArticleAdapter(result) {
+            val adapterRecycler = ArticleAdapter(result, {
+                val shareIntent = Intent(Intent.ACTION_SEND)
+                shareIntent.type = "text/plain"
+                val shareSub = it
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, shareSub)
+                startActivity(Intent.createChooser(shareIntent, "Share using"))
+            }, {
                 val openURL = Intent(Intent.ACTION_VIEW)
                 openURL.data = Uri.parse(it)
                 startActivity(openURL)
-            }
+            })
             recyclerView.layoutManager = LinearLayoutManager(context)
             recyclerView.adapter = adapterRecycler
         }
