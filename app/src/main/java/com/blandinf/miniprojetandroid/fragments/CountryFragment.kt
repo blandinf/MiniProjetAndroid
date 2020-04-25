@@ -14,8 +14,6 @@ import com.blandinf.miniprojetandroid.change
 
 class CountryFragment : Fragment() {
     lateinit var recyclerView: RecyclerView
-    lateinit var countryChoice:String
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -46,10 +44,7 @@ class CountryFragment : Fragment() {
             )
         )
         val adapterRecycler = CountryAdapter(countries) {
-
-            countryChoice = it
             activity?.change(ArticleFragment.newCountryInstance(it,"country"))
-
         }
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = adapterRecycler

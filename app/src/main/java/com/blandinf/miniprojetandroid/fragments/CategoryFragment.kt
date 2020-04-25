@@ -15,9 +15,6 @@ import com.blandinf.miniprojetandroid.fragments.ArticleFragment.Companion.catego
 
 class CategoryFragment : Fragment() {
     lateinit var recyclerView: RecyclerView
-    lateinit var categoryChoice:String
-
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -39,13 +36,7 @@ class CategoryFragment : Fragment() {
             Category(title="Ecologie", name="ecology", description="Notre terre respire, les populations mondiales respirent un air plus pur, disons merci au point positif du corona !", url="https://static.actu.fr/uploads/2019/05/AdobeStock_112721620-854x567.jpeg")
         )
         val adapterRecycler = CategoryAdapter(categories) {
-            // it = category name (ex: politics)
-            categoryChoice = it
-
-            //activity?.change(SourceFragment())
             activity?.change(ArticleFragment.newInstance(it,"category"))
-
-
         }
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = adapterRecycler

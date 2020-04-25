@@ -19,9 +19,7 @@ import kotlinx.coroutines.withContext
 
 class SourceFragment: Fragment() {
     lateinit var recyclerView: RecyclerView
-    private val repository =
-        SourceRepository()
-    lateinit var sourceChoice:String
+    private val repository = SourceRepository()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -41,11 +39,7 @@ class SourceFragment: Fragment() {
     private suspend fun bindData(result: List<Source>) {
         withContext(Dispatchers.Main) {
             val adapterRecycler = SourceAdapter(result) {
-                // it = source name (ex: bbc-news)
-                // activity?.change(SourceFragment())
-                sourceChoice = it
                 activity?.change(ArticleFragment.newSourceInstance(it,"sources"))
-
             }
             recyclerView.layoutManager = LinearLayoutManager(context)
             recyclerView.adapter = adapterRecycler
