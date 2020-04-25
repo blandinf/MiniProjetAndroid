@@ -39,7 +39,7 @@ class SourceFragment: Fragment() {
     private suspend fun bindData(result: List<Source>) {
         withContext(Dispatchers.Main) {
             val adapterRecycler = SourceAdapter(result) {
-                activity?.change(ArticleFragment.newSourceInstance(it,"sources"))
+                activity?.change(ArticleFragment.newInstance(it,"sources"))
             }
             recyclerView.layoutManager = LinearLayoutManager(context)
             recyclerView.adapter = adapterRecycler

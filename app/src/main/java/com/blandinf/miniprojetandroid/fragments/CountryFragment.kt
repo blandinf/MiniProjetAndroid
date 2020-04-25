@@ -44,7 +44,7 @@ class CountryFragment : Fragment() {
             )
         )
         val adapterRecycler = CountryAdapter(countries) {
-            activity?.change(ArticleFragment.newCountryInstance(it,"country"))
+            activity?.change(ArticleFragment.newInstance(it,"country"))
         }
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = adapterRecycler
