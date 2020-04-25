@@ -6,12 +6,7 @@ data class Article(
     val author: String,
     val url: String,
     val content:String,
-    val source: Source2,
+    val source: Source,
     val urlToImage: String,
     val publishedAt:String
-)
-
-data class Source2(
-    val id:String,
-    val name:String
 )

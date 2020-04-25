@@ -20,7 +20,6 @@ class ArticleAdapter(private val dataset: List<Article>, private val callback: (
             val source = root.findViewById<TextView>(R.id.source_name)
             val image = root.findViewById<ImageView>(R.id.article_image)
 
-
             title.text = item.title
             description.text = item.description
             source.text = item.source.name
@@ -29,7 +28,6 @@ class ArticleAdapter(private val dataset: List<Article>, private val callback: (
                 .load(item.urlToImage)
                 .centerCrop()
                 .into(image)
-
 
             root.setOnClickListener {
                 callback(item.title)

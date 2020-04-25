@@ -20,17 +20,18 @@ import java.util.concurrent.TimeUnit
 
 class ArticleRepository {
     private val service: ArticleService
+    val apiKey: String = BuildConfig.ApiKey;
 
-    fun getArticlesByCategory(category:String,getMode:String): List<Article> {
+    fun getArticlesByCategory(category:String): List<Article> {
         val response = service.getArticlesByCategory(category).execute()
         return response.body()?.articles ?: emptyList()
     }
-    fun getArticlesByCountry(country:String,getMode:String): List<Article> {
+    fun getArticlesByCountry(country:String): List<Article> {
         val response = service.getArticlesByCountry(country).execute()
         return response.body()?.articles ?: emptyList()
     }
 
-    fun getArticlesBySources(source:String,getMode:String): List<Article> {
+    fun getArticlesBySources(source:String): List<Article> {
         val response = service.getArticlesBySource(source).execute()
         return response.body()?.articles ?: emptyList()
     }
@@ -40,7 +41,7 @@ class ArticleRepository {
 
         val url: HttpUrl = original.url
             .newBuilder()
-            .addQueryParameter("apiKey", "ee529b71a56540c487f617abf0a3c8c0")
+            .addQueryParameter("apiKey", apiKey)
             .build()
 
         val device = Build.MANUFACTURER + "-" + Build.MODEL

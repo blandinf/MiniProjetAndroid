@@ -57,9 +57,9 @@ class ArticleFragment: Fragment() {
         withContext(Dispatchers.IO) {
 
             when(getModeChoice){
-                "country"-> resultData = repository.getArticlesByCountry(countryChoice,"country")
-                "category"-> resultData = repository.getArticlesByCategory(categoryChoice,"category")
-                "sources"-> resultData = repository.getArticlesBySources(sourceChoice,"sources")
+                "country"-> resultData = repository.getArticlesByCountry(countryChoice)
+                "category"-> resultData = repository.getArticlesByCategory(categoryChoice)
+                "sources"-> resultData = repository.getArticlesBySources(sourceChoice)
             }
 
             bindData(resultData)
