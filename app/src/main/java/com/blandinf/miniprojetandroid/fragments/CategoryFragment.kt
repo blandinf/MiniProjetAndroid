@@ -10,9 +10,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.blandinf.miniprojetandroid.R
 import com.blandinf.miniprojetandroid.adapters.CategoryAdapter
 import com.blandinf.httpdatas.models.Category
+import com.blandinf.miniprojetandroid.change
+import com.blandinf.miniprojetandroid.fragments.ArticleFragment.Companion.categoryChoice
 
 class CategoryFragment : Fragment() {
     lateinit var recyclerView: RecyclerView
+    lateinit var categoryChoice:String
+
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -35,7 +40,12 @@ class CategoryFragment : Fragment() {
         )
         val adapterRecycler = CategoryAdapter(categories) {
             // it = category name (ex: politics)
-            // activity?.change(SourceFragment())
+            categoryChoice = it
+
+            //activity?.change(SourceFragment())
+            activity?.change(ArticleFragment.newInstance(it,"category"))
+
+
         }
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = adapterRecycler

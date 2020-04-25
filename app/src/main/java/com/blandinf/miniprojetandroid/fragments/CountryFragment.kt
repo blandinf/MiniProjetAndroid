@@ -10,9 +10,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.blandinf.miniprojetandroid.R
 import com.blandinf.miniprojetandroid.adapters.CountryAdapter
 import com.blandinf.httpdatas.models.Country
+import com.blandinf.miniprojetandroid.change
 
 class CountryFragment : Fragment() {
     lateinit var recyclerView: RecyclerView
+    lateinit var countryChoice:String
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -29,22 +32,24 @@ class CountryFragment : Fragment() {
             Country(
                 "France",
                 "fr",
-                "https://www.betapolitique.fr/wp-content/uploads/2019/05/definition-politique.jpg"
+                "https://images.emojiterra.com/twitter/v12/512px/1f1eb-1f1f7.png"
             ),
             Country(
                 "Angleterre",
-                "en",
-                "https://www.betapolitique.fr/wp-content/uploads/2019/05/definition-politique.jpg"
+                "gb",
+                "https://images.emojiterra.com/twitter/v12/512px/1f1ec-1f1e7.png"
             ),
             Country(
                 "Allemagne",
                 "de",
-                "https://www.betapolitique.fr/wp-content/uploads/2019/05/definition-politique.jpg"
+                "https://images.emojiterra.com/twitter/v12/512px/1f1e9-1f1ea.png"
             )
         )
         val adapterRecycler = CountryAdapter(countries) {
-            // it = country language (ex: en)
-            // activity?.change(SourceFragment())
+
+            countryChoice = it
+            activity?.change(ArticleFragment.newCountryInstance(it,"country"))
+
         }
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = adapterRecycler
