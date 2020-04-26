@@ -1,5 +1,6 @@
 package com.blandinf.miniprojetandroid.fragments
 
+import android.media.Image
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -30,9 +31,9 @@ class ModeFragment: Fragment() {
     private fun bindRecyclerView() {
         //créer une liste d'articles
         val modes = listOf(
-            Mode("Sources", "sources"),
-            Mode("Catégories", "categories"),
-            Mode("Pays", "countries")
+            Mode("Par sources", "sources", R.drawable.sources_bg),
+            Mode("Par catégories", "categories", R.drawable.categories_bg),
+            Mode("Par pays", "countries", R.drawable.country_bg)
         )
         //créer une instance de l'adapteur
         val adapterRecycler = ModeAdapter(modes) {
@@ -44,7 +45,6 @@ class ModeFragment: Fragment() {
         }
         //définir l'orientation des élements (vertical)
         val layoutManager = LinearLayoutManager(context)
-        layoutManager.orientation = LinearLayoutManager.HORIZONTAL
         recyclerView.layoutManager = layoutManager
 
         //associer l'adapter à la recyclerview

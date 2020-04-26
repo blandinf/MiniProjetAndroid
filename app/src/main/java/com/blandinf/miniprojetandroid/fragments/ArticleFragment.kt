@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -40,6 +41,7 @@ class ArticleFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         recyclerView = view.findViewById(R.id.recyclerViewArticle)
 
+
         lifecycleScope.launch {
             getData()
         }
@@ -48,6 +50,10 @@ class ArticleFragment: Fragment() {
     private suspend fun getData() {
         withContext(Dispatchers.IO) {
             bindData(repository.getArticles(selectedFilter, selectedMode))
+            val loadingText = view?.findViewById<TextView>(R.id.loadingText)
+            if (loadingText != null) {
+                loadingText.text = ""
+            }
         }
     }
 

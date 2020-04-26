@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">MiniProjetAndroid</string>
+    <string name="bannerContentDesc">Bannière</string>
+    <string name="choiceCountry">CHOISISSEZ UN PAYS</string>
+    <string name="country_banner_title">Articles triés par pays</string>
+    <string name="country">Country</string>
+    <string name="choice_source">CHOISISSEZ UNE SOURCE</string>
+    <string name="banner_title_sources">Articles triés par sources</string>
+    <string name="loading">Chargement..</string>
+    <string name="share">Partager</string>
+    <string name="description">description</string>
+    <string name="source">source</string>
+    <string name="filter_articles">Filtrer les articles</string>
+    <string name="image_news">image news</string>
+    <string name="home_text">Découvrez les dernières actualités partout dans le monde</string>
+    <string name="welcome">Bienvenue !</string>
+    <string name="lets_start">C\'est parti !</string>
 </resources>

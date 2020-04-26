@@ -6,10 +6,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.blandinf.miniprojetandroid.R
 import com.blandinf.httpdatas.models.Country
+import com.blandinf.miniprojetandroid.R
 import com.bumptech.glide.Glide
 import com.bumptech.glide.annotation.GlideModule
+
 
 @GlideModule
 class CountryAdapter(private val dataset: List<Country>, private val callback: (country: String) -> Unit) : RecyclerView.Adapter<CountryAdapter.ViewHolder>() {
@@ -31,7 +32,8 @@ class CountryAdapter(private val dataset: List<Country>, private val callback: (
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.country_list_item, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(LayoutInflater.from(parent.context).inflate(
+        R.layout.country_list_item, parent, false))
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(dataset[position])
 
