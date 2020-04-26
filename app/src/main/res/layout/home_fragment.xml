@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:id="@+id/illuHome"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/home_illu"
+            android:contentDescription="@string/image_news" />
+
+        <TextView
+            android:id="@+id/welcomeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/illuHome"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:textSize="26sp"
+            android:textColor="@color/colorBlack"
+            android:textStyle="bold"
+            android:text="@string/welcome"/>
+        <TextView
+            android:id="@+id/welcomeDesc"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/welcomeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:textColor="@color/colorDarkGrey"
+            android:text="@string/home_text"
+            />
+
+        <Button
+            android:id="@+id/button_start"
+            android:layout_marginTop="50dp"
+            app:layout_constraintTop_toBottomOf="@id/welcomeDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:background="@color/colorPurple"
+            android:textColor="@color/colorWhite"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textStyle="bold"
+            android:text="@string/lets_start"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

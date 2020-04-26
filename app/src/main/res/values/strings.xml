@@ -11,4 +11,8 @@
     <string name="description">description</string>
     <string name="source">source</string>
     <string name="filter_articles">Filtrer les articles</string>
+    <string name="image_news">image news</string>
+    <string name="home_text">Découvrez les dernières actualités partout dans le monde</string>
+    <string name="welcome">Bienvenue !</string>
+    <string name="lets_start">C\'est parti !</string>
 </resources>

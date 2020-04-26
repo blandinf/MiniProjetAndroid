@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -33,6 +34,11 @@ class SourceFragment: Fragment() {
         withContext(Dispatchers.IO) {
             val result = repository.getSources()
             bindData(result)
+
+            val loadingText = view?.findViewById<TextView>(R.id.loadingText)
+            if (loadingText != null) {
+                loadingText.text = ""
+            }
         }
     }
     //S'execute sur le thread principal
