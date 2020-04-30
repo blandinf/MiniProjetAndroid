@@ -32,6 +32,7 @@ class ArticleAdapter(private val dataset: List<Article>, private val callbackSha
             Glide.with(root.context)
                 .load(item.urlToImage)
                 .centerCrop()
+                .placeholder(R.drawable.img_placeholder)
                 .into(image)
 
             root.setOnClickListener {
