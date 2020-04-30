@@ -25,6 +25,7 @@ class CountryFragment : Fragment() {
         return inflater.inflate(R.layout.country_list, container, false)
     }
 
+    //Création de la liste des différents pays disponibles
     private fun bindRecyclerView() {
         val countries = listOf(
             Country(

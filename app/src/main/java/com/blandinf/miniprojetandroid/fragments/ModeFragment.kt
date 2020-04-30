@@ -29,13 +29,14 @@ class ModeFragment: Fragment() {
     }
 
     private fun bindRecyclerView() {
-        //créer une liste d'articles
+        // Création de la liste de sources
         val modes = listOf(
             Mode("Par sources", "sources", R.drawable.sources_bg),
             Mode("Par catégories", "categories", R.drawable.categories_bg),
             Mode("Par pays", "countries", R.drawable.country_bg)
         )
-        //créer une instance de l'adapteur
+
+        // Création d'une une instance de l'adapteur
         val adapterRecycler = ModeAdapter(modes) {
             when (it) {
                 "sources" -> activity?.change(SourceFragment())
@@ -43,11 +44,11 @@ class ModeFragment: Fragment() {
                 else -> activity?.change(CountryFragment())
             }
         }
-        //définir l'orientation des élements (vertical)
+        // Définition de l'orientation des éléments
         val layoutManager = LinearLayoutManager(context)
         recyclerView.layoutManager = layoutManager
 
-        //associer l'adapter à la recyclerview
+        // Associer l'adapteur à la recyclerview
         recyclerView.adapter = adapterRecycler
     }
 }

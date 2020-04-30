@@ -21,6 +21,7 @@ class ArticleAdapter(private val dataset: List<Article>, private val callbackSha
             val image = root.findViewById<ImageView>(R.id.article_image)
             val buttonShare = root.findViewById<Button>(R.id.button_share)
 
+            //Callback créé pour pouvoir partager l'article
             buttonShare.setOnClickListener {
                 callbackShare(item.url)
             }
